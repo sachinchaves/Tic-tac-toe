@@ -28,7 +28,7 @@ function App() {
 
   let activePlayer = derivedActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [...initialGameBoard.map((array) => [...array])];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -76,6 +76,8 @@ function App() {
   function handleRestart() {
     setGameTurns([]);
   }
+
+  console.log("gameTurns", gameTurns);
 
   return (
     <main>
